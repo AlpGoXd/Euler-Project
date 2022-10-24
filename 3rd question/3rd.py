@@ -1,8 +1,8 @@
 # The prime factors of 13195 are 5, 7, 13 and 29.
 # What is the largest prime factor of the number 600851475143 ?
-number = 600851475143
+number = 6008514751777
 # FIXED :D
-def den(x):
+def fact(x):
     a = 0
     set = []
     while x % 2 == 0:
@@ -25,8 +25,9 @@ def prime(x):
             a = a + 1
             if y / a == y // a:
                 b = 1
+                y = y/a
         if b != 1:
             mek.append(y)
     return mek
 
-print(prime(den(number)))
+print(prime(fact(number)))
