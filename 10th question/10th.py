@@ -19,8 +19,10 @@ def calculate(x):
     a = -1
     for amogus in range(1, x):
         if prime(amogus) == 1:
-            a = a + amogus
+            a += amogus
     return a
 
 
 print(calculate(2000000))
+
+
