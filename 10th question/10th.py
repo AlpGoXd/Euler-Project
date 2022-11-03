@@ -24,5 +24,3 @@ def calculate(x):
 
 
 print(calculate(2000000))
-
-

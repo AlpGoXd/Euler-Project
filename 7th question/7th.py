@@ -24,4 +24,3 @@ def sugoma(x):
     return b
 
 print(sugoma(10001))
-
