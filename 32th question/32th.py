@@ -53,11 +53,13 @@ def pan(x):
     return sus
 
 
-def add(x):
+def addd(x):
     a = 0
     for i in x:
         a += i
     return a
 
 
-print(pan(calc()))
+c = (pan(calc()))
+# 5537
+
