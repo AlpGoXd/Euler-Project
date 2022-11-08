@@ -1,32 +1,64 @@
-# The decimal number, 585 = 1001001001 (binary), is palindromic in both bases.
-# Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.
-# (Please note that the palindromic number, in either base, may not include leading zeros.)
-def binar(x):
-    return int(str(bin(x))[2:])
+# The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719
+# are themselves prime.
+# There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
+# How many circular primes are there below one million?
+# ranging a list to a set
+# 8184201
+f = set()
+for p in range(0, 101):
+    f.add(p)
 
 
-def inv(x):
-    a = 0
-    while x > 0:
-        c = x % 10
-        a = a * 10 + c
-        x = x // 10
-    return a
-
-
-def pali(x):
-    if x == inv(x):
-        return 1
-    else:
-        return 0
-
-
-def palichk():
+#
+def rota(x):
     amogus = []
-    for i in range(1000001):
-        if pali(i) and pali(binar(i)):
-            amogus.append(i)
-    return amogus
+    sugoma = []
+    while x > 0:
+        amogus.append(x % 10)
+        x //= 10
+    amogus.reverse()
+    while len(amogus) != len(sugoma):
+        a = 0
+        b = 0
+        for i in amogus:
+            b = int(str(b) + str(i))
+        sugoma.append(b)
+        amogus.append(amogus[0])
+        amogus.pop(0)
+    print("amogus: ", amogus, "sugoma: ", sugoma)
+    return sugoma
+
+
+def prime(x):
+    if x % 2 == 0:
+        if x > 2:
+            return 0
+        return 1
+    a = int(x ** (1 / 2))
+    b = 1
+    while a > b:
+        b = b + 1
+        if x % b == 0:
+            return 0
+    return 1
+
+
+def rotchk(x):
+    for i in rota(x):
+        if not prime(i):
+            return False
+    return True
+
+
+def calc():
+    kidamogus = set()
+    for i in range(2, 1000001):
+        if prime(i):
+            if rotchk(i):
+                kidamogus.add(i)
+            continue
+        continue
+    return kidamogus
 
 
 def add(x):
@@ -36,8 +68,6 @@ def add(x):
     return a
 
 
-p = palichk()
-print(p)
-print(add(p))
-for i in p:
-    print(binar(i), end="||")
+o = calc()
+print(sorted(o))
+print(len(o))
