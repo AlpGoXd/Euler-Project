@@ -5,8 +5,6 @@
 # Find the sum of all products whose multiplicand/multiplier/product identity can be written
 # as a 1 through 9 pandigital.
 # HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.
-test = [[39, 186, 7254]]
-
 
 def count(x):
     a = 1
@@ -53,13 +51,14 @@ def pan(x):
     return sus
 
 
-def addd(x):
+def adder(x):
+    amogus = set()
     a = 0
-    for i in x:
-        a += i
+    for i in range(len(x)):
+        amogus.add(x[i][2])
+    for j in amogus:
+        a += j
     return a
 
 
-c = (pan(calc()))
-# 5537
-
+print(adder(pan(calc())))
