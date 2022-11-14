@@ -20,7 +20,7 @@ def calc(x):
     a = 0
     b = 0
     for i in range(2, x+1):
-        c =pisagor(i)
+        c = pisagor(i)
         if len(c) > b:
             a = i
             b = len(c)
